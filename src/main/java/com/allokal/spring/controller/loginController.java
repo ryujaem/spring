@@ -7,7 +7,7 @@ import java.sql.*;
 
 @RestController
 @RequiredArgsConstructor
-public class firstController {
+public class loginController {
 
     String driver = "org.mariadb.jdbc.Driver";
     Connection con = null;
@@ -34,9 +34,9 @@ public class firstController {
             String pwd = loginvo.pwd;
             stmt = con.createStatement();
             String sql = "SELECT user_num FROM user WHERE id = '" + id + "' AND pw = '" + pwd + "';";
-            System.out.println(sql+1);
+
             rs = stmt.executeQuery(sql);
-            System.out.println(sql+2);
+
             rs.next();
             System.out.println(sql+3);
             user_num = rs.getString("user_num");
